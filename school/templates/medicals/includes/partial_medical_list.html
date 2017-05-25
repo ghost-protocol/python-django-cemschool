@@ -1,0 +1,24 @@
+{% for medical in medicals %}
+  <tr>
+    <td>{{ medical.id }}</td>
+    <td>{{ medical.student }}</td>
+    <td>{{ medical.title }} {{ medical.firstname }} {{ medical.surname }}</td>
+    <!-- <td>{{ medical.dateofbirth }}</td>
+    <td>{{ medical.hometown }}</td>
+    <td>{{ medical.date_admission }}</td> -->
+    <td style="width: 150px">
+      <button type="button" class="btn btn-warning btn-sm js-update-medical" title="View/Edit" 
+      data-url="{% url 'medical_update' medical.id %}">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </button>
+      <button type="button" class="btn btn-danger btn-sm js-delete-medical" title="Delete" 
+      data-url="{% url 'medical_delete' medical.id %}">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td colspan="8" class="text-center bg-warning">No medicals</td>
+  </tr>
+{% endfor %}

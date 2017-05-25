@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static 'js/parents.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Parents</h1>
+
+  <p>
+    <button type="button" class="btn btn-primary js-create-parent" data-url="{% url 'parent_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      New parent
+    </button>
+  </p>
+
+  <table class="table" id="parent-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Student Name</th>
+        <th>Parent Name </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'parents/includes/partial_parent_list.html' %}
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="modal-parent">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+{% endblock %}

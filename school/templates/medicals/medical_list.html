@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static 'js/medicals.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Medicals</h1>
+
+  <p>
+    <button type="button" class="btn btn-primary js-create-medical" data-url="{% url 'medical_create' %}">
+      <span class="glyphicon glyphicon-plus"></span>
+      New medical
+    </button>
+  </p>
+
+  <table class="table" id="medical-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Student Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'medicals/includes/partial_medical_list.html' %}
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="modal-medical">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
